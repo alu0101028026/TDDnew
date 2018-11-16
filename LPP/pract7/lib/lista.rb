@@ -34,4 +34,19 @@ class DoublyList
 
 
        end
+       def to_s
+        node = Node.new(nil,nil,nil)
+        node = @head
+
+        tmp = "{"
+        tmp += " #{node.value.to_s}"
+        node = node.next
+
+        while !(node.nil?)
+          tmp += ", #{node.value.to_s}"
+          node = node.next
+        end
+        tmp += " }"
+        tmp
+      end
 end
