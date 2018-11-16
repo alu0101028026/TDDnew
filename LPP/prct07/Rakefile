@@ -1,0 +1,11 @@
+task :default => :spec
+
+desc "Ejecutar las espectativas de la clase list"
+task :spec do
+  sh "rspec -I. spec/test.rb"
+end
+
+desc "Ejecutar con documentacion"
+task :doc do
+  sh "rspec -I. spec/test.rb --format documentation"
+end
