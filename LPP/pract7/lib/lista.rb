@@ -64,5 +64,22 @@ class DoublyList
        def empty
          @head.nil?
        end
-end
+def clasificar (lista)
+  sali = DoublyList.new()
+  salm = DoublyList.new()
+
+  node = lista.extraccion
+  
+  while !(node.nil?)
+
+    if node.value.sal > 6
+      salm.insert(node.value.sal)
+    else
+      sali.insert(node.value.sal)
+    end
+    node = lista.extract
+  end
+
+
+  "{#{sali.to_s}, #{salm.to_s}}"
 end
