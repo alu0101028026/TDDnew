@@ -16,5 +16,12 @@ class DoublyList
 		    return false
 	    end
     end
+def add_to_tail(val)
+        current = @head
+	while current.next != nil
+          current = current.next
+        end
+	current.next = Node.new(val,nil, current)
+    end
 
 end 
