@@ -50,5 +50,22 @@ end
 end 
 end
 end
+
+def display_list
+        puts "Going from Head to Tail"
+        current = @head
+        while current.next != nil
+            puts current.value
+            current = current.next
+        end
+        puts current.value
+
+        puts "Going from Tail to Head"
+        while current.prev != nil
+            puts current.value
+            current = current.prev
+        end
+        puts current.value
+    end
 end
 
