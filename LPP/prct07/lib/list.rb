@@ -8,4 +8,13 @@ class DoublyList
        @length=0
         
     end
+
+    def empty
+	    if @head=nil
+		    return true
+	    else
+		    return false
+	    end
+    end
+
 end 
