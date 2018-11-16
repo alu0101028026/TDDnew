@@ -31,5 +31,24 @@ def add_to_head(val)
         cur.next = new_node
     end
 
-
+def delete(val)
+current=@head
+if val=current
+current=nil
+while current.next =nil
+current=current.next
+end
+else 
+while current != val
+     current=current.next
+end
+if current=val
+current=nil
+while current.next =nil
+current=current.next
+end
 end 
+end
+end
+end
+

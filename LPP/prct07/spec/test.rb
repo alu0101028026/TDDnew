@@ -42,6 +42,13 @@ it "node to head" do
 	d=@n5
 	@list.add_to_head(d)
 	expect(@list.head).to eq(@n5)
+
+end
+
+it "delete node" do
+	e=@n4
+	@list.delete(e)
+	expect(@list.gettail).to eq(@n3)
 end
 end
 
