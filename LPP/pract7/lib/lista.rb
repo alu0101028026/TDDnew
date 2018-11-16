@@ -18,4 +18,20 @@ class DoublyList
             @tail = node
 
        end
+       def extraccion
+
+          return nil if self.empty
+          a= @head
+          @head = @head.next
+
+
+          @head.prev = nil unless @head.nil?
+          @tail = nil if @head.nil?
+
+          a.next = nil
+
+          a
+
+
+       end
 end
