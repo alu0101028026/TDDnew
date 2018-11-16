@@ -1,71 +1,85 @@
+Node = Struct.new(:value, :next, :prev)
+
 class DoublyList
+      attr_accessor :head, :tail
 
-	Node= Struct.new(:value, :next, :prev)
-        attr_accessor :head, :length
+       def initialize
+         @head = nil
+         @tail = nil
+       end
 
-    def initialize(val)
-        @head = Node.new(val,nil,nil)
-       @length=0
-        
-    end
+       def insertar(value)
 
-    def empty
-	    if @head=nil
-		    return true
-	    else
-		    return false
-	    end
-    end
-def add_to_tail(val)
-        current = @head
-	while current.next != nil
-          current = current.next
+           node = Node.new(value, nil, @tail)
+
+           @head = node if @head.nil?
+           @tail.next = node unless @tail.nil?
+
+            @tail = node
+
+       end
+       def extraccion
+
+          return nil if self.empty
+          a= @head
+          @head = @head.next
+
+
+          @head.prev = nil unless @head.nil?
+          @tail = nil if @head.nil?
+
+          a.next = nil
+
+          a
+
+
+       end
+       def to_s
+        node = Node.new(nil,nil,nil)
+        node = @head
+
+        tmp = "{"
+        tmp += " #{node.value.to_s}"
+        node = node.next
+
+        while !(node.nil?)
+          tmp += ", #{node.value.to_s}"
+          node = node.next
         end
-	current.next = Node.new(val,nil, current)
-    end
-def add_to_head(val)
-        current           = @head
-	new_node          = Node.new(val, current.next, current)
-	cur= current.next
-        cur.prev = new_node
-        cur.next = new_node
-    end
+        tmp += " }"
+        tmp
+      end
+       def length
 
-def delete(val)
-current=@head
-if val=current
-current=nil
-while current.next =nil
-current=current.next
-end
-else 
-while current != val
-     current=current.next
-end
-if current=val
-current=nil
-while current.next =nil
-current=current.next
-end
-end 
-end
-end
+          s = 0
+          node = @head
+          while !(node.nil?)
+            s = s + 1
+            node = node.next
+          end
 
-def display_list
-        puts "Going from Head to Tail"
-        current = @head
-        while current.next != nil
-            puts current.value
-            current = current.next
+          s
         end
-        puts current.value
 
-        puts "Going from Tail to Head"
-        while current.prev != nil
-            puts current.value
-            current = current.prev
-        end
-        puts current.value
+       def empty
+         @head.nil?
+       end
+def clasificar (lista)
+  sali = DoublyList.new()
+  salm = DoublyList.new()
+
+  node = lista.extraccion
+  
+  while !(node.nil?)
+
+    if node.value.sal > 6
+      salm.insert(node.value.sal)
+    else
+      sali.insert(node.value.sal)
     end
-end
+    node = lista.extract
+  end
 
+
+  "{#{sali.to_s}, #{salm.to_s}}"
+end
