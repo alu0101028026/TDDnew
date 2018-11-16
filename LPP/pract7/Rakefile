@@ -1,0 +1,11 @@
+task :default => :spec
+  
+desc "Ejecutar las espectativas de la clase List"
+task :spec do
+  sh "rspec -I. spec/lista_spec.rb"
+end
+
+desc "Ejecutar las espectativas de la clase etiqueta"
+task :tag do
+  sh "rspec -I. spec/eti_spec.rb"
+end
