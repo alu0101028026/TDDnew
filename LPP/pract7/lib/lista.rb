@@ -7,4 +7,15 @@ class DoublyList
          @head = nil
          @tail = nil
        end
+
+       def insertar(value)
+
+           node = Node.new(value, nil, @tail)
+
+           @head = node if @head.nil?
+           @tail.next = node unless @tail.nil?
+
+            @tail = node
+
+       end
 end
