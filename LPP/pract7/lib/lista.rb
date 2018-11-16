@@ -49,4 +49,20 @@ class DoublyList
         tmp += " }"
         tmp
       end
+       def length
+
+          s = 0
+          node = @head
+          while !(node.nil?)
+            s = s + 1
+            node = node.next
+          end
+
+          s
+        end
+
+       def empty
+         @head.nil?
+       end
+end
 end
