@@ -23,5 +23,13 @@ def add_to_tail(val)
         end
 	current.next = Node.new(val,nil, current)
     end
+def add_to_head(val)
+        current           = @head
+	new_node          = Node.new(val, current.next, current)
+	cur= current.next
+        cur.prev = new_node
+        cur.next = new_node
+    end
+
 
 end 
